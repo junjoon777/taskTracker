@@ -8,11 +8,6 @@ function generateId() {
 }
 
 export function AppProvider({ children }) {
-  const [names, setNames] = useState(() => [
-    localStorage.getItem('tc_name_0') || 'Player 1',
-    localStorage.getItem('tc_name_1') || 'Player 2',
-  ])
-
   const [tasks, setTasks] = useState([[], []])
   const [loading, setLoading] = useState(true)
 
@@ -40,13 +35,6 @@ export function AppProvider({ children }) {
 
     return () => supabase.removeChannel(channel)
   }, [])
-
-  const updateName = (idx, name) => {
-    const updated = [...names]
-    updated[idx] = name
-    setNames(updated)
-    localStorage.setItem(`tc_name_${idx}`, name)
-  }
 
   const addTask = async (idx, data) => {
     const task = {
@@ -90,7 +78,7 @@ export function AppProvider({ children }) {
   const getTasksForDate = (idx, dateStr) => tasks[idx].filter(t => t.date === dateStr)
 
   return (
-    <AppContext.Provider value={{ names, updateName, addTask, deleteTask, getTasksForDate, loading }}>
+    <AppContext.Provider value={{ addTask, deleteTask, getTasksForDate, loading }}>
       {children}
     </AppContext.Provider>
   )

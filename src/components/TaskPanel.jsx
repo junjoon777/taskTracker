@@ -34,7 +34,9 @@ function formatPanelDate(dateStr, todayPST) {
   return base
 }
 
-export default function TaskPanel({ selectedDate, todayPST, activeUser, onSwitchUser, names }) {
+const NAMES = ['Jun', 'Eujin']
+
+export default function TaskPanel({ selectedDate, todayPST, activeUser, onSwitchUser }) {
   const { getTasksForDate, addTask, deleteTask } = useApp()
   const tasks = getTasksForDate(activeUser, selectedDate)
   const totalHours = tasks.reduce((s, t) => s + t.hours, 0)
@@ -70,7 +72,7 @@ export default function TaskPanel({ selectedDate, todayPST, activeUser, onSwitch
     <div className="tp">
       {/* User tabs */}
       <div className="tp__users">
-        {names.map((name, idx) => (
+        {NAMES.map((name, idx) => (
           <button
             key={idx}
             type="button"

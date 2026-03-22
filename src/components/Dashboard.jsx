@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import { useApp } from '../context/AppContext'
 import CityView from './CityView'
 import TaskPanel from './TaskPanel'
@@ -11,43 +11,8 @@ const THEMES = [
   { id: 'night',   emoji: '🌙', label: 'Night'   },
 ]
 
-function NameTag({ name, onSave, colorClass }) {
-  const [editing, setEditing] = useState(false)
-  const [draft, setDraft]     = useState(name)
-  const inputRef = useRef(null)
-
-  useEffect(() => { if (editing) inputRef.current?.select() }, [editing])
-
-  const commit = () => {
-    const trimmed = draft.trim()
-    if (trimmed) onSave(trimmed)
-    else setDraft(name)
-    setEditing(false)
-  }
-
-  if (editing) {
-    return (
-      <input
-        ref={inputRef}
-        className={`nt-input ${colorClass}`}
-        value={draft}
-        onChange={e => setDraft(e.target.value)}
-        onBlur={commit}
-        onKeyDown={e => { if (e.key === 'Enter') commit(); if (e.key === 'Escape') { setDraft(name); setEditing(false) } }}
-        maxLength={20}
-      />
-    )
-  }
-
-  return (
-    <span className={`nt-name ${colorClass}`} onClick={() => setEditing(true)} title="Click to rename">
-      {name}
-    </span>
-  )
-}
-
 export default function Dashboard() {
-  const { names, updateName, loading } = useApp()
+  const { loading } = useApp()
 
   const [todayPST,     setTodayPST]     = useState(getTodayPST)
   const [selectedDate, setSelectedDate] = useState(getTodayPST)
@@ -83,9 +48,9 @@ export default function Dashboard() {
         </div>
 
         <div className="dash__players">
-          <NameTag name={names[0]} onSave={n => updateName(0, n)} colorClass="nt--self" />
+          <span className="nt-name nt--self">Jun</span>
           <span className="dash__vs">vs</span>
-          <NameTag name={names[1]} onSave={n => updateName(1, n)} colorClass="nt--partner" />
+          <span className="nt-name nt--partner">Eujin</span>
         </div>
 
         <div className="theme-switcher" role="group" aria-label="Sky theme">
@@ -117,7 +82,6 @@ export default function Dashboard() {
           todayPST={todayPST}
           activeUser={activeUser}
           onSwitchUser={setActiveUser}
-          names={names}
         />
       </main>
     </div>

@@ -89,7 +89,7 @@ export default function CityView({ todayPST, selectedDate, onSelectDate, theme =
                     tasks={getTasksForDate(0, dateStr)}
                     isToday={isToday}
                     isSelected={isSelected}
-                    capType={index}
+                    colIdx={index}
                     variant="self"
                   />
                 </div>
@@ -98,7 +98,7 @@ export default function CityView({ todayPST, selectedDate, onSelectDate, theme =
                     tasks={getTasksForDate(1, dateStr)}
                     isToday={isToday}
                     isSelected={isSelected}
-                    capType={index}
+                    colIdx={index}
                     variant="partner"
                   />
                 </div>
