@@ -1,0 +1,72 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --sky-top: #050510;
+  --sky-bottom: #0f1235;
+  --ground-color: #0d1f07;
+  --ground-light: #162b0b;
+  --star-color: #ffffff;
+  --moon-color: #fde68a;
+
+  --study-dark: #1d4ed8;
+  --study-base: #3b82f6;
+  --study-light: #93c5fd;
+  --workout-dark: #b91c1c;
+  --workout-base: #ef4444;
+  --workout-light: #fca5a5;
+  --personal-dark: #15803d;
+  --personal-base: #22c55e;
+  --personal-light: #86efac;
+
+  /* Partner (user 2) color palette — purple / amber / pink */
+  --p-study-dark: #7c3aed;
+  --p-study-base: #a855f7;
+  --p-study-light: #e9d5ff;
+  --p-workout-dark: #d97706;
+  --p-workout-base: #f59e0b;
+  --p-workout-light: #fde68a;
+  --p-personal-dark: #be185d;
+  --p-personal-base: #ec4899;
+  --p-personal-light: #fbcfe8;
+  --p-accent: #22d3ee;
+
+  --today-glow: rgba(253, 230, 138, 0.4);
+  --today-border: #fbbf24;
+  --selected-border: #e2e8f0;
+
+  --panel-bg: #0d0d1f;
+  --panel-border: rgba(255,255,255,0.08);
+  --text-primary: #e2e8f0;
+  --text-muted: #94a3b8;
+  --accent: #818cf8;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--sky-top);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+button { cursor: pointer; }
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.05);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.15);
+  border-radius: 3px;
+}

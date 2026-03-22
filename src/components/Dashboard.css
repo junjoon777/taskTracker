@@ -1,0 +1,144 @@
+.dash {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ─── Header ─────────────────────────────────────────────────────────────── */
+.dash__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 18px;
+  background: rgba(5, 5, 20, 0.96);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  flex-shrink: 0;
+  z-index: 10;
+  backdrop-filter: blur(8px);
+}
+
+.dash__logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.dash__logo-icon {
+  font-size: 1.4rem;
+  filter: drop-shadow(0 0 8px rgba(253,230,138,0.4));
+}
+
+.dash__logo-text {
+  font-size: 1.1rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #e2e8f0, #818cf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.3px;
+}
+
+/* ─── Player names ────────────────────────────────────────────────────────── */
+.dash__players {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dash__vs {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #475569;
+  letter-spacing: 0.5px;
+}
+
+.nt-name {
+  font-size: 0.875rem;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 6px;
+  padding: 3px 8px;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+.nt-name:hover { background: rgba(255,255,255,0.07); }
+
+.nt--self    { color: var(--study-base); }
+.nt--partner { color: var(--p-study-base); }
+
+.nt-input {
+  font-size: 0.875rem;
+  font-weight: 700;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 6px;
+  padding: 3px 8px;
+  outline: none;
+  width: 110px;
+}
+.nt-input.nt--self    { color: var(--study-base);    border-color: var(--study-base); }
+.nt-input.nt--partner { color: var(--p-study-base);  border-color: var(--p-study-base); }
+
+/* ─── Theme switcher ──────────────────────────────────────────────────────── */
+.theme-switcher {
+  display: flex;
+  gap: 4px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 999px;
+  padding: 3px;
+}
+
+.ts-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: none;
+  background: transparent;
+  color: #64748b;
+  font-size: 0.75rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.ts-btn:hover { color: #94a3b8; background: rgba(255,255,255,0.07); }
+
+.ts-emoji { font-size: 0.875rem; line-height: 1; }
+.ts-label { font-size: 0.6875rem; letter-spacing: 0.2px; }
+
+/* Active states per theme */
+.ts-btn--active { font-weight: 700; }
+
+.ts-btn--morning.ts-btn--active {
+  background: rgba(253,230,138,0.18);
+  color: #fbbf24;
+  box-shadow: 0 0 12px rgba(253,230,138,0.12);
+}
+
+.ts-btn--sunset.ts-btn--active {
+  background: rgba(244,166,35,0.2);
+  color: #f97316;
+  box-shadow: 0 0 12px rgba(249,115,22,0.15);
+}
+
+.ts-btn--night.ts-btn--active {
+  background: rgba(129,140,248,0.2);
+  color: #a5b4fc;
+  box-shadow: 0 0 12px rgba(129,140,248,0.12);
+}
+
+/* ─── Main ─────────────────────────────────────────────────────────────────── */
+.dash__main {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
