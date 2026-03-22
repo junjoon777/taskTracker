@@ -47,7 +47,7 @@ function NameTag({ name, onSave, colorClass }) {
 }
 
 export default function Dashboard() {
-  const { names, updateName } = useApp()
+  const { names, updateName, loading } = useApp()
 
   const [todayPST,     setTodayPST]     = useState(getTodayPST)
   const [selectedDate, setSelectedDate] = useState(getTodayPST)
@@ -105,6 +105,7 @@ export default function Dashboard() {
       </header>
 
       <main className="dash__main">
+        {loading && <div className="dash__loading">Loading city…</div>}
         <CityView
           todayPST={todayPST}
           selectedDate={selectedDate}

@@ -134,6 +134,19 @@
   box-shadow: 0 0 12px rgba(129,140,248,0.12);
 }
 
+/* ─── Loading ─────────────────────────────────────────────────────────────── */
+.dash__loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(255,255,255,0.35);
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+  pointer-events: none;
+  z-index: 20;
+}
+
 /* ─── Main ─────────────────────────────────────────────────────────────────── */
 .dash__main {
   flex: 1;
